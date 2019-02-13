@@ -4,24 +4,25 @@
   (+ n n))
 
 
-(define (mult-iter a b counter total)
-  (cond ((= b 0) 
-           0)
-        ((= counter b) 
-           total)
-        ((< (double counter) b)
-           (mult-iter a b (double counter) (double total)))
-        ((< counter b)
-           (mult-iter a b (+ 1 counter) (+ a total)))))
+;; floor division
+(define (halve n)
+  (if (even? n)
+    (/ n 2)
+    (/ (- n 1) 2)))
 
+
+(define (mult-iter left right total)
+  (cond ((= left 0) total)
+        ((even? left) (mult-iter (halve left) (double right) total))
+        (else (mult-iter (halve left) (double right) (+ total  right)))))
 
 (define (peasant-mult a b)
-  (mult-iter a b 1 a))
+  (mult-iter a b 0))
 
 
 ;; test
 
-(display (peasant-mult 100000 500000) (current-output-port))
+(display (peasant-mult 42398479283 5239480989023) (current-output-port))
 (newline (current-output-port))
 
 

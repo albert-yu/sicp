@@ -13,7 +13,7 @@
 
 ;; test
 
-(display (multiply-fast 4 5) (current-output-port))
+(display (multiply-fast 10000000 4348098029384) (current-output-port))
 (newline (current-output-port))
 
 

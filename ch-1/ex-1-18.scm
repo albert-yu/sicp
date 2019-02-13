@@ -3,9 +3,6 @@
 (define (double n)
   (+ n n))
 
-(define (halve n)
-  (/ n 2))
-
 
 (define (mult-iter a b counter total)
   (cond ((= b 0) 
@@ -16,7 +13,6 @@
            (mult-iter a b (double counter) (double total)))
         ((< counter b)
            (mult-iter a b (+ 1 counter) (+ a total)))))
-          
 
 
 (define (peasant-mult a b)

@@ -1,16 +1,12 @@
 ;; Ex. 1.19
 
 
-(define (double n)
-  (+ n n))
-
-
 (define (square n)
   (* n n))
 
 
-
-;; Write T as a 2 x 2 matrix that acts on (a, b). 
+;; Write T as a 2 x 2 matrix that acts on (a, b) such that
+;; it results in the given transformation. 
 ;; This comes out to 
 ;; | p + q   q |
 ;; | q       p |

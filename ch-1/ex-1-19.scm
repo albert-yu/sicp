@@ -15,7 +15,7 @@
 ;; | (q + p)^2 + q^2    (q + p)*q + p*q |
 ;; | (q + p)*q + p*q    p^2 + q^2       |
 ;; yielding p' = p^2 + q^2
-;; and q' = (q + p)*1 + p*q
+;; and q' = (q + p)*q + p*q
 ;; you can verify that the upper left value is equal to 
 ;; p' + q'
 (define (p_prime p q)
@@ -27,7 +27,7 @@
 
 
 (define (fib-iter a b p q count)
-  (cond ((= count 0) a)
+  (cond ((= count 0) b)
         ((even? count)
           (fib-iter a
                     b
@@ -48,7 +48,7 @@
 
 ;; test
 
-(define result (fib 100))
+(define result (fib 20))
 
 (display result (current-output-port))
 (newline (current-output-port))

@@ -41,7 +41,7 @@
 
 ;; test
 
-;; sum of squares of prime numbers between 2 and 100
+;; a) sum of squares of prime numbers between 2 and 100
 
 (define (puts expr)
   (display expr (current-output-port))
@@ -56,4 +56,20 @@
   (+ 1 x))
 
 
-(puts (filtered-accumulate + 0 square 2 inc 100 prime?)) 
+(puts (filtered-accumulate + 0 square 2 inc 100 prime?))
+
+;; b) product of i < n such that i and n are relatively prime
+
+(define (id x)
+  x)
+
+
+(define (relatively-prime n)
+  (define (predicate i)
+    (= 1 (gcd i n)))
+  (filtered-accumulate * 1 id 1 inc n predicate))
+
+
+(puts (relatively-prime 7))
+
+

@@ -4,7 +4,7 @@ Selected solutions to exercises from _Structure and Interpretation of Computer P
 
 ## Running the examples
 
-`mit-scheme` can be found [here](https://github.com/albert-yu/sicp.git).
+`mit-scheme` can be found [here](https://www.gnu.org/software/mit-scheme/).
 
 Then run:
 

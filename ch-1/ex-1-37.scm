@@ -26,17 +26,14 @@
 ;; b)
 
 (define (cont-frac-iter n d k i state)
-  (if (= i k)
-    (+
-      state
-      (/ (n i) (d i)))
-    (cont-frac-iter n d k (+ i 1) (/ 
-				    (n (+ i 1))
-				    (+ (d (+ i 1)) state)))))
+  (cond ((= i 0) state)
+	(else (cont-frac-iter n d k (- i 1) (/ 
+				              (n i)
+				              (+ (d i) state))))))
 
 
 (define (cont-frac-iterative n d k)
-  (cont-frac-iter n d k 1 0))
+  (cont-frac-iter n d k k 0))
 
 
 (puts (cont-frac-iterative (lambda (i) 1.0)

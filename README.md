@@ -6,6 +6,12 @@ Selected solutions to exercises from _Structure and Interpretation of Computer P
 
 `mit-scheme` can be found [here](https://www.gnu.org/software/mit-scheme/).
 
+On macOS, the easiest way is to probably use `homebrew`:
+
+```bash
+brew install mit-scheme
+```
+
 Then run:
 
 ```bash

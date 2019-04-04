@@ -8,26 +8,30 @@
 
 ;; greatest commmon divisor
 ;; for simplifying fractions
-(define (gcd n d)
-  (if (= b 0)
+(define (gcd a b)
+  (if (= 0 b)
     a
     (gcd b (remainder a b))))
-
-
-;; rational numbers
-(define (make-rat n d)
-  (let ((g (gcd n d)))
-    (if (< d 0)
-      ;; multiply top and bottom by -1 if
-      ;; divisor is negative
-      (cons (/ (* -1 n) g) (/ (* -1 d) g))
-      (cons (/ n g) (/ d g))))) 
 
 (define (numer x) 
   (car x))
 
 (define (denom x) 
   (cdr x))
+
+(define (flip-signs x)
+  (cons
+    (* (numer x) -1)
+    (* (denom x) -1)))
+
+;; rational numbers
+(define (make-rat n d)
+  (let ((g (gcd n d)))
+    (let ((raw (cons (/ n g) (/ d g))))
+      (if (< (denom raw) 0)
+        (flip-signs raw)
+        raw))))
+
 
 (define (add-rat x y)
   (make-rat (+ (* (numer x) (denom y))
@@ -52,6 +56,12 @@
   (display "/" (current-output-port))
   (display (denom x) (current-output-port))
   (newline (current-output-port)))
+
+
+;; test
+(prnt-rat (make-rat -1 -9))
+
+(prnt-rat (make-rat 4 -2))
 
 
 

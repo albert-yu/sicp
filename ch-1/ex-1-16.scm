@@ -7,8 +7,8 @@
    (= (remainder n 2) 0))
 
 (define (expt-iter b n state)
-  (cond ((= 0 n) (* state 1))
-        ((even? n) (expt-iter b (/ n 2) (* (square state) b)))
+  (cond ((= 0 n) state)
+        ((even? n) (expt-iter (square b) (/ n 2) state))
         (else (expt-iter b (- n 1) (* state b)))))
 
 
@@ -17,7 +17,7 @@
 
 ;; test
 
-(define result (power 1 10000000))
+(define result (power 10 5))
 
 (display result (current-output-port))
 (newline (current-output-port))

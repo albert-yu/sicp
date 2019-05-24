@@ -27,4 +27,25 @@
   (num1 (add-1 num2)))
 
 
+(define to-int-iter
+  (lambda (n) (+ 1 n)))
+
+(define (to-integer church-num)
+  (define (incr n)
+    (+ 1 n))
+  (define x 0)  
+  (church-num (set! x (incr x)))
+    x)
+
+(define (num-foos church-num)
+  (define (print-foo)
+    (puts "start/")
+    (puts "foo")
+    (puts "/end"))
+  (church-num print-foo))
+
+
 ;; test
+(puts (add one two))
+(puts (to-integer two))
+

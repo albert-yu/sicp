@@ -5,11 +5,11 @@
 
 
 (define (upper-bound interval)
-  (car interval))
+  (cdr interval))
 
 
 (define (lower-bound interval)
-  (cdr interval))
+  (car interval))
 
 
 

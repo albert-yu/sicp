@@ -1,4 +1,4 @@
-;; Ex. 2.8
+;; Ex. 2.9
 
 (define (make-interval a b)
   (cons a b))
@@ -42,6 +42,7 @@
 ;; implement subtracting two intervals
 
 ;; define additive inverse
+
 (define (add-inverse x)
   (make-interval (- 0 (upper-bound x))
                  (- 0 (lower-bound x))))
@@ -53,4 +54,6 @@
     (add-inverse y)))
 
 
-
+;; define width
+(define (width x)
+  (/ (- (upper-interval x) (lower-interval x)) 2))

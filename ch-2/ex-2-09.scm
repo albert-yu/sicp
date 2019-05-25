@@ -71,8 +71,19 @@
     (puts (width a))
     (puts (width b))))
 
-
+(puts "sum test:")
 (sumtest)
 
 
+;; f(a * b) != f(a) * f(b)
+
+(define (producttest)
+  (let ((a (make-interval 1.0 5.0))
+        (b (make-interval 3.0 6.0)))
+    (puts (width (mul-interval a b)))
+    (puts (width a))
+    (puts (width b))))
+
+(puts "product test:")
+(producttest)
 

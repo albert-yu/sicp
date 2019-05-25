@@ -1,5 +1,10 @@
 ;; Ex. 2.9
 
+(define (puts expr)
+  (display expr (current-output-port))
+  (newline (current-output-port)))
+
+
 (define (make-interval a b)
   (cons a b))
 
@@ -56,4 +61,18 @@
 
 ;; define width
 (define (width x)
-  (/ (- (upper-interval x) (lower-interval x)) 2))
+  (/ (- (upper-bound x) (lower-bound x)) 2))
+
+;; f(a + b) == f(a) + f(b)
+(define (sumtest)
+  (let ((a (make-interval 1.0 5.0))
+        (b (make-interval 3.0 6.0)))
+    (puts (width (add-interval a b)))
+    (puts (width a))
+    (puts (width b))))
+
+
+(sumtest)
+
+
+

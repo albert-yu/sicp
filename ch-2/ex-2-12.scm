@@ -26,21 +26,39 @@
   (car interval))
 
 
-;; implementation from book
-
 (define (make-center-width c w)
   (make-interval (- c w) (+ c w)))
+
 
 (define (center i)
   (/ (+ (lower-bound i) (upper-bound i)) 2))
 
+
 (define (width i)
-(/ (- (upper-bound i) (lower-bound i)) 2)
+  (/ (- (upper-bound i) (lower-bound i)) 2))
+
+
+;; definition of new constructor
+;; with percent error tolerances
+(define (make-center-percent c p)
+  (let ((w (abs (* (/ p 100) c))))
+    (make-center-width c w)))
+
+
+;; definition of calculating the 
+;; percentage that an interval 
+;; spans
+(define (percent i)
+  (let ((c (abs (center i)))
+        (w (width i)))
+    (/ (/ w c) 100))) 
 
 
 (define (add-interval x y)
-  (make-interval (+ (lower-bound x) (lower-bound y))
-                 (+ (upper-bound x) (upper-bound y))))
+  (make-interval 
+    (+ (lower-bound x) (lower-bound y))
+    (+ (upper-bound x) (upper-bound y))))
+
 
 (define (mul-interval-old x y)
   (let ((p1 (* (lower-bound x) (lower-bound y)))
@@ -50,21 +68,26 @@
     (make-interval (min p1 p2 p3 p4)
                    (max p1 p2 p3 p4))))
 
+
 (define (pos? x)
   (>= x 0))
+
 
 (define (pos-upp? intvl)
   ;; is the upper bound of this 
   ;; interval positive?
   (pos? (upper-bound intvl)))
 
+
 (define (pos-low? intvl)
   ;; is the lower bound of this 
   ;; interval positive?
   (pos? (lower-bound intvl)))
 
+
 (define (neg-upp? intvl)
   (not (pos-upp? intvl)))
+
 
 (define (neg-low? intvl)
   (not (pos-low? intvl)))
@@ -198,5 +221,8 @@
 
 
 ;; test
+(let ((x (make-center-percent -6.8 10)))
+  (put-interval x)
+  (puts (percent x)))
 
 

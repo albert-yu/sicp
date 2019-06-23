@@ -1,7 +1,16 @@
-;; Ex. 2.11
+;; Ex. 2.12
 
 (define (puts expr)
   (display expr (current-output-port))
+  (newline (current-output-port)))
+
+(define (put-interval x)
+  ;; prints out a given interval
+  (display "(" (current-output-port))
+  (display (lower-bound x) (current-output-port))
+  (display ", " (current-output-port))
+  (display (upper-bound x) (current-output-port))
+  (display ")" (current-output-port))
   (newline (current-output-port)))
 
 
@@ -18,6 +27,16 @@
 
 
 ;; implementation from book
+
+(define (make-center-width c w)
+  (make-interval (- c w) (+ c w)))
+
+(define (center i)
+  (/ (+ (lower-bound i) (upper-bound i)) 2))
+
+(define (width i)
+(/ (- (upper-bound i) (lower-bound i)) 2)
+
 
 (define (add-interval x y)
   (make-interval (+ (lower-bound x) (lower-bound y))
@@ -178,29 +197,6 @@
     (add-inverse y)))
 
 
-;; define width
-(define (width x)
-  (/ (- (upper-bound x) (lower-bound x)) 2))
-
-
 ;; test
-(define (put-interval x)
-  (display "(" (current-output-port))
-  (display (lower-bound x) (current-output-port))
-  (display ", " (current-output-port))
-  (display (upper-bound x) (current-output-port))
-  (display ")" (current-output-port))
-  (newline (current-output-port)))
 
-(define (test)
-  (let 
-    ((x (make-interval -30 20))
-     (y (make-interval 49 345)))
-    (put-interval
-      (mul-interval x y))
-    (put-interval
-      (mul-interval-old x y))))
-
-
-(test) 
 

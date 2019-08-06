@@ -51,7 +51,7 @@
 (define (percent i)
   (let ((c (abs (center i)))
         (w (width i)))
-    (/ (/ w c) 100)))
+    (* (/ w c) 100)))
 
 
 (define (add-interval x y)
@@ -220,10 +220,10 @@
     (add-inverse y)))
 
 
-(define (percent-tol-prod percent-tol-x percent-tol-y)
-  ;; approximate percentage of the tolerance of the product
-  ;; in terms of the tolerances of the factors
-  )
+;;(define (percent-tol-prod percent-tol-x percent-tol-y)
+;;  ;; approximate percentage of the tolerance of the product
+;;  ;; in terms of the tolerances of the factors
+;;  )
 
 ;; test
 (let ((x (make-center-percent -6.8 10)))

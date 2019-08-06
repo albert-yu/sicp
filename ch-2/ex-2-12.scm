@@ -51,7 +51,7 @@
 (define (percent i)
   (let ((c (abs (center i)))
         (w (width i)))
-    (/ (/ w c) 100))) 
+    (* (/ w c) 100))) 
 
 
 (define (add-interval x y)

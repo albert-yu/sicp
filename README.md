@@ -1,6 +1,6 @@
 # Structure and Interpretation of Computer Programs
 
-Selected solutions to exercises from _Structure and Interpretation of Computer Programs_
+These are my solutions to exercises from _Structure and Interpretation of Computer Programs_. The book's PDF is available [here](https://web.mit.edu/alexmv/6.037/sicp.pdf).
 
 ## Running the examples
 
@@ -18,5 +18,3 @@ Then run:
 cd ch-1/
 mit-scheme --quiet < ex-1-36.scm
 ```
-
-The book's PDF is available [here](https://web.mit.edu/alexmv/6.037/sicp.pdf).

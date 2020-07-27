@@ -35,23 +35,19 @@
     " "
     (str-pascal-el row col))))
 
-(define (str-row row num-cols)
+(define (str-row row)
   (string-append
-   (str-row-iter row (- 1 num-cols))
+   (str-row-iter row row)
    "\n"))
 
-(define (str-pascal-iter num-rows num-cols)
-  (if (= 1 num-rows)
-    (str-row 0 num-cols)
+(define (str-pascal-iter row)
+  (if (= 0 row)
+    (str-row 0)
    (string-append
-    (str-pascal-iter (- 1 num-rows) num-cols)
-    (str-row (- 1 num-rows) num-cols))))
+    (str-pascal-iter (- row 1))
+    (str-row row))))
 
 (define (show-pascal num-rows)
-  (puts (str-pascal-iter num-rows num-rows)))
+  (puts (str-pascal-iter (- num-rows 1))))
 
-(show-pascal 2)
-
-; (puts
-;  (pascal-el 4 2))
-   
+(show-pascal 10)

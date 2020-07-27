@@ -225,4 +225,3 @@
   (put-interval x)
   (puts (percent x)))
 
-
